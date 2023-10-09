@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* CSS sıfırlama ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* İçerikler */
+
+body {
+    background-image: linear-gradient(60deg, rgb(42, 42, 42), rgb(23, 23, 23));
+    height: 100vh;
+    
+}
+
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: fixed;
+    border-bottom: 3px solid rgba(14, 185, 119, 0.432);
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header h1 {
+    font-size: 50px;
+    color: #fff;
+}
+
+.container {
+    width: 400px;
+    padding: 25px 35px;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container p {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(203, 203, 203, 0.725);
+    padding-bottom: 10px;
+}
+
+.container input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #0c826a;
+    outline: 0;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 5px;
+
+}
+.container input:focus {
+    width: 100%;
+    height: 50x;
+    border: 2px solid #0c826a;
+ 
+}
+
+#generate-button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border: 0;
+    background-image: linear-gradient(45deg, rgb(14, 213, 150), rgb(22, 185, 109));
+    font-size: 17px;
+    font-weight: 500;
+    color: #191919;
+    margin: 20px 0;
+    transition: transform 0.3s;
+}
+
+#generate-button span:nth-child(1) {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#imgBox {
+    width: 200px;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+}
+
+#imgBox img {
+    width: 100%;
+    padding: 10px;
+}
+
+#imgBox.show-img {
+    max-height: 300px;
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+}
+
+
+/* Hata Animasyonu */
+
+.error {
+    animation: shake 0.1s linear 10;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    70% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+/* Media Sorguları */
+
+@media (max-width: 620px) {
+    .header h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 448px) {
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .container {
+        width: 350px;
+    }
+}
+
+@media (max-width: 364px) {
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        width: 310px;
+    }
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-button {
+    width: 60px;
+    height: 60px;
+    background-color: #049d53f5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px 6px rgba(0, 0, 0, 0.1);
+  
+}
+.round-button span{
+    font-size: 35px;
+}
+
+.round-button:hover {
+    background-color: #16a75c;
+    transition: 0.4s all;
+    box-shadow: 0 4px 16px 6px rgba(0, 0, 0, 0.314);
+}
+
+#info-buttons {
+    position: absolute;
+    top: -30px;
+    right: -100px;
+    display: none;
+    margin: 10px auto;
+    font-weight: 500;
+    transition: transform 0.3s ease; /* Diğer transform etkisini sıfırla */
+    animation: slideIn 0.3s forwards; /* slideIn animasyonunu kullan ve son pozisyonda kal */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(10px, 0); /* X ekseni boyunca 30px kaydır */
+    }
+}
+
+
+
+/* Bağlantılarım CSS*/
+
+.info-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px 10px;
+    background-color: #e9e9e9;
+    box-shadow: 0 4px 10px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.info-button .image{
+    width: 30px;
+    height: 90%;
+    margin-left: 4px;
+
+}
+
+.info-logos{
+    width: 100%;
+    height: 100%;
+
+}
+
+.info-button:hover {
+    transform: scale(1.1);
+}
